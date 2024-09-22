@@ -1,0 +1,83 @@
+---
+const { post } = Astro.props;
+---
+
+<style>
+.post-i-container {
+    margin: 10px;
+    list-style: none;
+    cursor: pointer;
+
+    max-width: 300px;
+    height: 195px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: hsla(0, 0%, 34%, 0.079);
+    
+    padding: 10px;
+    
+    border: 5.4px solid hsla(0, 0%, 34%, 0.079);
+    transition: all .5s ease-in-out;
+}
+
+.post-i-container:hover {
+    background-color: hsla(0, 0%, 34%, 0.23);
+    border: 5.4px solid var(--primary-color);
+}
+
+.post-i-container > li {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-i-container > li > a {
+    color: var(--primary-text-color);
+    font-size: 17pt;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.post-i-container > li > a > p {
+    font-size: 12pt;
+}
+
+.tags-container {
+    display: flex;
+    gap: 10px;
+    font-size: 12pt;
+    text-wrap: balance;
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.tags-container > .tag {
+    background-color: hsla(0, 0%, 34%, 0.23);
+    min-width: 80px;
+    padding: 2.5px;
+    border-radius: 8px;
+}
+
+
+</style>
+
+<div class="post-i-container">
+    <li>
+        <a href={post.url}>
+            <span>{post.frontmatter.title}</span>
+            <p>{post.frontmatter.description}</p>
+
+            <ul class="tags-container">
+                {post.frontmatter.tags.map((tag) => (
+                        <li class="tag flex-center">{tag}</li>
+                    )
+                )}
+            </ul>
+        </a>
+    </li>
+</div>

@@ -1,0 +1,77 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<style>
+    .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--nav-bg-color);
+
+        margin-bottom: 20px;
+        padding: 1.2rem;
+
+        -webkit-box-shadow: 0px 22px 30px -15px rgba(0,0,0,0.62);
+        -moz-box-shadow: 0px 22px 30px -15px rgba(0,0,0,0.62);
+        box-shadow: 0px 22px 30px -15px rgba(0,0,0,0.62);
+        color: white;
+    }
+
+    .navbar-container > div {
+        display: flex;
+        gap: 12px;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        color: white;
+        text-decoration: none;
+        padding: 7.5px;
+        transition: all .5s ease-in-out;
+	}
+
+    a:hover {
+        color: var(--secondary-text-color);
+        background-color: var(--post-bg);
+    }
+
+    .blog-btn {
+        background-color: var(--primary-color);
+        border: 2.6px solid var(--primary-color);
+        
+
+        padding: 0 25px;
+        border-radius: 4px;
+        transition: all .2s ease-in-out;
+    }
+
+    .blog-btn:hover {
+        background-color: var(--nav-bg-color);
+    }
+    
+</style>
+
+<nav class="navbar-container">
+    <span>DumbyNotes</span>
+    <div>
+        <a href="/">
+            <Icon name="mdi:house-outline" />
+            home</a>
+        <a href="/">
+            <Icon name="mdi:source-branch" />
+            github
+        </a>
+        <a href="/about">
+            <Icon name="mdi:book-open-variant-outline" />
+            about
+        </a>
+        <a class="flex-center blog-btn" href="/blog">
+            <Icon name="mdi:comma" />
+            blog
+        </a>
+    </div>
+</nav>

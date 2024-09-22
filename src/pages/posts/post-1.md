@@ -1,0 +1,79 @@
+---
+layout: "../layouts/PostLayout.astro"
+title: "Minha primeira postagem em meu projeto :)"
+pubDate: 2024-09-14
+description: 'Estou tentando criar um blog utilizando o framework AstroJs :)'
+author: 'orodrigojose'
+image:
+    url: 'https://docs.astro.build/assets/rose.webp'
+    alt: 'The Astro logo on a dark background with a pink glow.'
+tags: ["astro", "blogging", "learning in public"]
+---
+
+# Isto é um título muito legal
+
+Como é visto anteriormente, alguns conteúdos materializados
+olhe logo abaixo
+
+## Código fonte
+_um simples código_
+
+```astro
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<style>
+    .post-container {
+        display: flex;
+        flex-direction: column;
+
+        width: 80%;
+    }
+
+    .post-actions {
+        width: 74%;
+    }
+
+.post-actions > .action {
+        color: white;
+        font-weight: bolder;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .post-informations {
+        margin: 10px 0;
+        color: var(--secondary-text-color);
+    }
+
+</style>
+    
+<BaseLayout pageTitle={ frontmatter.title }>
+
+    <div class="post-container">
+        <header class="post-actions">
+            <a href="/blog" class="action">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24">
+                  <path fill="currentColor" d="M20 11v2H8v2H6v-2H4v-2h2V9h2v2zM10 7H8v2h2zm0 0h2V5h-2zm0 10H8v-2h2zm0 0h2v2h-2z" />
+                </svg>
+                <p>Voltar</p>
+             </a>
+        </header>
+        <div>
+            <div class="post-informations">
+                <p>{frontmatter.title}</p>
+                <p>{frontmatter.pubDate}</p>
+                <span class="post-description">{frontmatter.description}</span>
+            </div>
+            <main>
+                <slot/>,t
+            </main>
+        </div>
+    </div>
+</BaseLayout>
+```

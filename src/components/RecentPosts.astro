@@ -1,0 +1,19 @@
+---
+import PostItem from "./PostItem.astro";
+const allPosts = await Astro.glob("../pages/posts/*.md");
+const recentPosts = allPosts.map((__, index, arr) => index == arr.length -2 || index === arr.length - 1 ? arr[index] : null).filter(x => x !== null); 
+---
+
+<style>
+  .post-list {
+    display: flex;;
+}
+</style>
+
+<div>
+  <ul class="post-list">
+    {recentPosts ? recentPosts.map((post) => (
+      <PostItem post={post}/>
+      )) : <h1>Nenhum Post encontrado ;-;</h1>}
+  </ul>
+</div>

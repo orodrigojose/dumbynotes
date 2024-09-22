@@ -1,16 +1,62 @@
 ---
+import BaseLayout from "./layouts/BaseLayout.astro";
+import RecentPosts from "../components/RecentPosts.astro";
+import { Icon } from 'astro-icon/components';
 
+const pageTitle = "Dumby Notes";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+	.main-container {
+		/* flex-direction: column; */
+		width: 85%;
+		height: 100%;
+	}
+
+	h1 {
+		font-family: 'Matemasie', sans-serif;
+		font-size: 32pt;
+		margin-top: 4rem;
+	}
+
+	.main-container > header > p {
+		font-size: 17pt;
+		width: 60%;
+	}
+
+	.recent-posts-container, header {
+		width: 50%;
+		flex-direction: column;
+		margin-bottom: 10%;
+	}
+
+	.recent-posts-container > h2 {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 22px;
+		font-size: 28pt;
+	}
+
+</style>
+
+<BaseLayout pageTitle={pageTitle}>
+	<div class="main-container flex-center">
+		<header class="flex-center">
+			<h1>Welcome to my Dumby Notes!</h1>
+			<p>
+				Seja bem vindo ao meu "Blog"!.
+				Aqui estarei postando resumos de meus estudos, tutoriais de algumas tecnologias
+				e até mesmo alguns assuntos informais e fúteis.
+			</p>
+		</header>
+		<div class="recent-posts-container flex-center">
+			<h2>
+				<Icon name="mdi:collage" />
+				Postagens recentes
+			</h2>
+			<RecentPosts/>
+		</div>
+	</div>
+</BaseLayout>
+

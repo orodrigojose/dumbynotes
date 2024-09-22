@@ -1,0 +1,16 @@
+---
+import PostItem from "../components/PostItem.astro";
+import BaseLayout from "./layouts/BaseLayout.astro";
+
+const allPosts = await Astro.glob("./posts/*.md");
+---
+
+
+<BaseLayout>
+  <h2>Publicações</h2>
+  <ul>
+    {allPosts ? allPosts.map((post) => (
+      <PostItem post={post}/>
+      )): <p>Nenhuma publicação feita</p>}
+  </ul>
+</BaseLayout>
