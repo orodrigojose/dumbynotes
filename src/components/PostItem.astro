@@ -73,7 +73,7 @@ const { post } = Astro.props;
             <p>{post.frontmatter.description}</p>
 
             <ul class="tags-container">
-                {post.frontmatter.tags.map((tag) => (
+                {post.frontmatter.tags.map((tag: any) => (
                         <li class="tag flex-center">{tag}</li>
                     )
                 )}
