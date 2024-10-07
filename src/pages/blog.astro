@@ -6,9 +6,26 @@ const allPosts = await Astro.glob("./posts/*.md");
 ---
 
 
+<style>
+    .posts-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+
+      width: 100vw;
+    }
+
+	  @media only screen and (max-width: 800px) {
+      .posts-container {
+        flex-direction: column;
+      }
+    }
+</style>
+
 <BaseLayout>
-  <h2>Publicações</h2>
-  <ul>
+  <h2 class="pub-title">Publicações</h2>
+  <ul class="posts-container">
     {allPosts ? allPosts.map((post) => (
       <PostItem post={post}/>
       )): <p>Nenhuma publicação feita</p>}

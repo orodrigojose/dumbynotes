@@ -8,7 +8,7 @@ const pageTitle = "Dumby Notes";
 
 <style>
 	.main-container {
-		/* flex-direction: column; */
+		display: flex;
 		width: 85%;
 		height: 100%;
 	}
@@ -24,6 +24,8 @@ const pageTitle = "Dumby Notes";
 		width: 60%;
 	}
 
+	.main-container > header > h1 { text-align: center; }
+
 	.recent-posts-container, header {
 		width: 50%;
 		flex-direction: column;
@@ -38,10 +40,15 @@ const pageTitle = "Dumby Notes";
 		font-size: 28pt;
 	}
 
+	@media only screen and (max-width: 800px) {
+		.main-container { display: block; }
+		header, .recent-posts-container { width: 100%; }
+	}
+
 </style>
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="main-container flex-center">
+	<div class="main-container">
 		<header class="flex-center">
 			<h1>Welcome to my Dumby Notes!</h1>
 			<p>
@@ -59,4 +66,3 @@ const pageTitle = "Dumby Notes";
 		</div>
 	</div>
 </BaseLayout>
-

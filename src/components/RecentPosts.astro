@@ -6,8 +6,15 @@ const recentPosts = allPosts.map((__, index, arr) => index == arr.length -2 || i
 
 <style>
   .post-list {
-    display: flex;;
-}
+    display: flex;
+  }
+
+
+	@media only screen and (max-width: 768px) {
+    .post-list {
+      flex-direction: column;
+    }
+  }
 </style>
 
 <div>

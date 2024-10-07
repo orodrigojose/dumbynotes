@@ -6,6 +6,7 @@ import { Icon } from 'astro-icon/components'
     .navbar-container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         background-color: var(--nav-bg-color);
 
         margin-bottom: 20px;
@@ -22,10 +23,21 @@ import { Icon } from 'astro-icon/components'
         gap: 12px;
     }
 
+    .navbar-title {
+        font-size: 17pt;
+        font-weight: bold;
+        transition: all .5s ease-in-out;
+    }
+
+    .navbar-title:hover {
+        color: var(--primary-color)
+    }
+
     a {
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
         gap: 8px;
 
         color: white;
@@ -53,21 +65,35 @@ import { Icon } from 'astro-icon/components'
         background-color: var(--nav-bg-color);
     }
     
+	@media only screen and (max-width: 800px) {
+        .nav-item > span {
+            display: none;
+        }
+
+        .navbar-container > div {
+            gap: 5px;
+        }
+
+        .blog-btn {
+            padding: 0 14px;
+        }
+    }
 </style>
 
 <nav class="navbar-container">
-    <span>DumbyNotes</span>
+    <span class="navbar-title">DumbyNotes</span>
     <div>
-        <a href="/">
+        <a href="/" class="nav-item">
             <Icon name="mdi:house-outline" />
-            home</a>
-        <a href="/">
-            <Icon name="mdi:source-branch" />
-            github
+            <span>home</span>
         </a>
-        <a href="/about">
+        <a href="/" class="nav-item">
+            <Icon name="mdi:source-branch" />
+            <span>github</span>
+        </a>
+        <a href="/about" class="nav-item">
             <Icon name="mdi:book-open-variant-outline" />
-            about
+            <span>about</span>
         </a>
         <a class="flex-center blog-btn" href="/blog">
             <Icon name="mdi:comma" />
