@@ -20,9 +20,8 @@ _um simples código_
 
 ```astro
 ---
-import BaseLayout from "./BaseLayout.astro";
 
-const { frontmatter } = Astro.props;
+const test = ""
 ---
 
 <style>
@@ -50,30 +49,5 @@ const { frontmatter } = Astro.props;
         margin: 10px 0;
         color: var(--secondary-text-color);
     }
-
 </style>
-    
-<BaseLayout pageTitle={ frontmatter.title }>
-
-    <div class="post-container">
-        <header class="post-actions">
-            <a href="/blog" class="action">
-                <svg xmlns="http://www.w3.org/2000/svg" width="1.2rem" height="1.2rem" viewBox="0 0 24 24">
-                  <path fill="currentColor" d="M20 11v2H8v2H6v-2H4v-2h2V9h2v2zM10 7H8v2h2zm0 0h2V5h-2zm0 10H8v-2h2zm0 0h2v2h-2z" />
-                </svg>
-                <p>Voltar</p>
-             </a>
-        </header>
-        <div>
-            <div class="post-informations">
-                <p>{frontmatter.title}</p>
-                <p>{frontmatter.pubDate}</p>
-                <span class="post-description">{frontmatter.description}</span>
-            </div>
-            <main>
-                <slot/>,t
-            </main>
-        </div>
-    </div>
-</BaseLayout>
 ```

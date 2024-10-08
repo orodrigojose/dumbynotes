@@ -1,8 +1,67 @@
 ---
 import BaseLayout from "./layouts/BaseLayout.astro";
+import Logo from "../../public/404.svg?raw";
+import { Icon } from "astro-icon/components";
 ---
 
+<style>
+    .ntf-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row-reverse;
+        padding: 1.5rem;
+        gap: 22px;
+    }
+
+    .ntf-container > .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        gap: 22px;
+        color: var(--secondary-text-color);
+    }
+
+    .text-container > .btn-home {
+        color: var(--primary-text-color);
+        font-size: 17pt;
+        font-weight: bold;
+
+        width: 55px;
+        height: 55px;
+
+        border-radius: 100%;
+        background-color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        transition: 0.4s all ease-in-out;
+    }
+
+    .text-container > .btn-home:hover {
+        background-color: var(--background-color);
+    }
+
+    @media only screen and (max-width: 800px) {
+        .ntf-container {
+            flex-direction: column;
+            width: 96%;
+        }
+    }
+</style>
+
 <BaseLayout>
-    <h2>404</h2>
-    <p>Não há nada aqui, volte para a página inicial</p>
+    <div class="ntf-container">
+        <Fragment class="logo" set:html={Logo} />
+        <div class="text-container">
+            <span>
+                Opss!!! Parece que você se perdeu, infelizmente não há nada aqui.<br/>
+                Vou lhe ajudar a voltar para o começo, para retornar a página inicial
+                basta interagir com o botão abaixo.
+            </span>
+            <a href="/" class="btn-home flex-center">
+                <Icon name="mdi:house-outline" />
+            </a>
+        </div>
+    </div>
 </BaseLayout>
